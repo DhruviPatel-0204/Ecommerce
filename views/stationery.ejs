@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stationery Items</title>
+    <link rel="stylesheet" href="style2.css">
+</head>
+<body>
+    <div class="home">
+    <form action="/home" method="POST">
+        <button type="submit" class="home">GO TO HOME PAGE</button>
+    </form>
+</div>
+    <h1>STATIONERY ITEMS</h1>
+    <div id="items-container">
+        <!-- Item 1 -->
+        <div class="item" id="s1">
+            <img src="s1.jpg" alt="Notepad" style="width: 300px; height: 220px; display: block;">
+            <p>Notepad - Rs.100</p>
+            <!-- Form to add item to cart -->
+            <form action="/addtocart" method="POST" class="item-form">
+                <input type="hidden" name="id" value="s1">
+                <input type="hidden" name="name" value="Notepad">
+                <input type="hidden" name="price" value="100">
+                <input type="hidden" name="image" value="s1.jpg">
+                <button type="submit" class="add-to-cart">ADD TO CART</button>
+            </form>
+            <!-- Form to proceed to buy item -->
+            <form action="/buy" method="POST" class="item-form">
+                <input type="hidden" name="id" value="s1">
+                <input type="hidden" name="name" value="Notepad">
+                <input type="hidden" name="price" value="100">
+                <input type="hidden" name="image" value="s1.jpg">
+                <button type="submit" class="proceed-to-buy">PROCEED TO BUY</button>
+            </form>
+        </div>
+
+        <!-- Item 2 -->
+        <div class="item" id="s2">
+            <img src="s2.jpg" alt="Notebook" style="width: 300px; height: 220px; display: block;">
+            <p>Notebook - Rs.220</p>
+            <!-- Form to add item to cart -->
+            <form action="/addtocart" method="POST" class="item-form">
+                <input type="hidden" name="id" value="s2">
+                <input type="hidden" name="name" value="Notebook">
+                <input type="hidden" name="price" value="220">
+                <input type="hidden" name="image" value="s2.jpg">
+                <button type="submit" class="add-to-cart">ADD TO CART</button>
+            </form>
+            <!-- Form to proceed to buy item -->
+            <form action="/buy" method="POST" class="item-form">
+                <input type="hidden" name="id" value="s2">
+                <input type="hidden" name="name" value="Notebook">
+                <input type="hidden" name="price" value="220">
+                <input type="hidden" name="image" value="s2.jpg">
+                <button type="submit" class="proceed-to-buy">PROCEED TO BUY</button>
+            </form>
+        </div>
+
+        <!-- Item 3 -->
+        <div class="item" id="s3">
+            <img src="s3.jpeg" alt="Pencil Colours" style="width: 300px; height: 220px; display: block;">
+            <p>Pencil Colours - Rs.50</p>
+            <!-- Form to add item to cart -->
+            <form action="/addtocart" method="POST" class="item-form">
+                <input type="hidden" name="id" value="s3">
+                <input type="hidden" name="name" value="Pencil Colours">
+                <input type="hidden" name="price" value="50">
+                <input type="hidden" name="image" value="s3.jpeg">
+                <button type="submit" class="add-to-cart">ADD TO CART</button>
+            </form>
+            <!-- Form to proceed to buy item -->
+            <form action="/buy" method="POST" class="item-form">
+                <input type="hidden" name="id" value="s3">
+                <input type="hidden" name="name" value="Pencil Colours">
+                <input type="hidden" name="price" value="50">
+                <input type="hidden" name="image" value="s3.jpeg">
+                <button type="submit" class="proceed-to-buy">PROCEED TO BUY</button>
+            </form>
+        </div>
+
+        <!-- Item 4 -->
+        <div class="item" id="s4">
+            <img src="s4.webp" alt="Colour Pens" style="width: 300px; height: 220px; display: block;">
+            <p>Colour Pens - Rs.200</p>
+            <!-- Form to add item to cart -->
+            <form action="/addtocart" method="POST" class="item-form">
+                <input type="hidden" name="id" value="s4">
+                <input type="hidden" name="name" value="Colour Pens">
+                <input type="hidden" name="price" value="200">
+                <input type="hidden" name="image" value="s4.webp">
+                <button type="submit" class="add-to-cart">ADD TO CART</button>
+            </form>
+            <!-- Form to proceed to buy item -->
+            <form action="/buy" method="POST" class="item-form">
+                <input type="hidden" name="id" value="s4">
+                <input type="hidden" name="name" value="Colour Pens">
+                <input type="hidden" name="price" value="200">
+                <input type="hidden" name="image" value="s4.webp">
+                <button type="submit" class="proceed-to-buy">PROCEED TO BUY</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('.item-form').forEach(form => {
+                form.addEventListener('submit', function(event) {
+                    // Example client-side validation
+                    const amount = this.querySelector('input[name="price"]')?.value || this.querySelector('input[name="amount"]').value;
+                    const id = this.querySelector('input[name="id"]').value;
+
+                    if (!id || !amount) {
+                        event.preventDefault();
+                        alert('Missing item details.');
+                        return;
+                    }
+
+                    console.log('Form submitted:', { id, amount });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+
+<!-- document.querySelectorAll('.buy').forEach(button => {
+    button.addEventListener('click', function(event) {
+        event.preventDefault();
+        const amount = this.form.querySelector('input[name="amount"]').value;
+        console.log("Amount:", amount);
+        // Proceed with your payment processing logic here
+    });
+}); -->

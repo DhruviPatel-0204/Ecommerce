@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Cart</title>
+    <link rel="stylesheet" href="style4.css">
+</head>
+<body>
+    <div class="home">
+    <form action="/home" method="POST" >
+        <button type="submit" class="home">GO TO HOME PAGE</button>
+    </form>
+    </div>
+    <% if (cart.length > 0) { %>
+        <h1>Your Cart</h1>
+        <form action="/buyall" method="POST" class="item-form">
+            <button type="submit" class="proceed-to-buy">PROCEED TO BUY</button>
+        </form>
+        <div id="items-container">
+            <% cart.forEach(item => { %>
+                <div class="item" id="<%= item.id %>">
+                    <img src="<%= item.image %>" alt="<%= item.name %>" style="width: 300px; height: 220px; display: block;">
+                    <p><%= item.name %> - Rs.<%= item.price %></p>
+                    <form action="/remove" method="POST" class="item-form">
+                        <input type="hidden" name="id" value="<%= item.product_id %>">
+                        <input type="hidden" name="price" value="<%= item.price %>">
+                        <button type="submit" class="remove-from-cart">REMOVE FROM CART</button>
+                    </form>
+                    <!-- Form to proceed to buy item -->
+                    <form action="/buy" method="POST" class="item-form">
+                        <input type="hidden" name="id" value="<%= item.id %>">
+                        <input type="hidden" name="name" value="<%= item.name %>">
+                        <input type="hidden" name="price" value="<%= item.price %>">
+                        <input type="hidden" name="image" value="<%= item.image %>">
+                        <button type="submit" class="proceed-to-buy">PROCEED TO BUY</button>
+                    </form>
+                </div>
+            <% }) %>
+        </div>
+    <% } else { %>
+        <p>Your cart is empty.</p>
+    <% } %> 
+    
+</body>
+</html>

@@ -1,0 +1,87 @@
+#items {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    margin: 10px;
+}
+
+#stationery, #books, #electronics {
+    height: 100px;
+    width: 80%;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+#stationery {
+    background-color: #d0e9ff;
+    border: 2px solid #007bff;
+}
+
+#books {
+    background-color: #fff3cd;
+    border: 2px solid #ffc107;
+}
+
+#electronics {
+    background-color: #d4edda;
+    border: 2px solid #28a745;
+}
+
+#cart {
+    background-color: #343a40;
+    color: white;
+    text-align: right;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#stationery button, #books button, #electronics button {
+    height: 100%;
+    width: 100%;
+    border: none;
+    background-color: inherit;
+    color: #333;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+#stationery button:hover {
+    background-color: #007bff;
+    color: #fff;
+}
+
+#books button:hover {
+    background-color: #ffc107;
+    color: #333;
+}
+
+#electronics button:hover {
+    background-color: #28a745;
+    color: #fff;
+}
+
+.home button {
+    background-color: red; 
+    color: white; 
+    border: none; 
+    padding: 10px 20px; 
+    font-size: 16px; 
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.home button:hover {
+    background-color: darkred; 
+}
+

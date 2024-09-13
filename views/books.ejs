@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stationery Items</title>
+    <link rel="stylesheet" href="style2.css">
+</head>
+<body>
+    <div class="home">
+    <form action="/home" method="POST">
+        <button type="submit" class="home">GO TO HOME PAGE</button>
+    </form>
+</div>
+    <h1>BOOKS</h1>
+    <div id="items-container">
+        <!-- Item 1 -->
+        <div class="item" id="b1">
+            <img src="b1.jpg" alt="Notepad" style="width: 300px; height: 220px; display: block;">
+            <p>The power of your subconscious mind - Rs.150</p>
+            <!-- Form to add item to cart -->
+            <form action="/addtocart" method="POST" class="item-form">
+                <input type="hidden" name="id" value="b1">
+                <input type="hidden" name="name" value="The power of your subconscious mind">
+                <input type="hidden" name="price" value="150">
+                <input type="hidden" name="image" value="b1.jpg">
+                <button type="submit" class="add-to-cart">ADD TO CART</button>
+            </form>
+            <!-- Form to proceed to buy item -->
+            <form action="/buy" method="POST" class="item-form">
+                <input type="hidden" name="id" value="b1">
+                <input type="hidden" name="name" value="The power of your subconscious mind">
+                <input type="hidden" name="price" value="150">
+                <input type="hidden" name="image" value="b1.jpg">
+                <button type="submit" class="proceed-to-buy">PROCEED TO BUY</button>
+            </form>
+        </div>
+
+        <!-- Item 2 -->
+        <div class="item" id="b2">
+            <img src="b2.jpeg" alt="Notebook" style="width: 300px; height: 220px; display: block;">
+            <p>Notebook - Rs.220</p>
+            <!-- Form to add item to cart -->
+            <form action="/addtocart" method="POST" class="item-form">
+                <input type="hidden" name="id" value="b2">
+                <input type="hidden" name="name" value="Atomic Habits">
+                <input type="hidden" name="price" value="350">
+                <input type="hidden" name="image" value="b2.jpeg">
+                <button type="submit" class="add-to-cart">ADD TO CART</button>
+            </form>
+            <!-- Form to proceed to buy item -->
+            <form action="/buy" method="POST" class="item-form">
+                <input type="hidden" name="id" value="b2">
+                <input type="hidden" name="name" value="Atomic Habits">
+                <input type="hidden" name="price" value="350">
+                <input type="hidden" name="image" value="b2.jpeg">
+                <button type="submit" class="proceed-to-buy">PROCEED TO BUY</button>
+            </form>
+        </div>
+
+        
+
+            </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('.item-form').forEach(form => {
+                form.addEventListener('submit', function(event) {
+                    // Example client-side validation
+                    const amount = this.querySelector('input[name="price"]')?.value || this.querySelector('input[name="amount"]').value;
+                    const id = this.querySelector('input[name="id"]').value;
+
+                    if (!id || !amount) {
+                        event.preventDefault();
+                        alert('Missing item details.');
+                        return;
+                    }
+
+                    console.log('Form submitted:', { id, amount });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+
+<!-- document.querySelectorAll('.buy').forEach(button => {
+    button.addEventListener('click', function(event) {
+        event.preventDefault();
+        const amount = this.form.querySelector('input[name="amount"]').value;
+        console.log("Amount:", amount);
+        // Proceed with your payment processing logic here
+    });
+}); -->
